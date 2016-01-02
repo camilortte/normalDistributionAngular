@@ -1,0 +1,1 @@
+﻿var discretasApp = angular.module('discretasApp', []);

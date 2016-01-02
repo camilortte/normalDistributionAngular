@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>Probabilidad</title>
+  <meta name="description" content="website description" />
+  <meta name="keywords" content="website keywords, website keywords" />
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="css/styleCamilo.css" />
+  <!-- modernizr enables HTML5 elements and feature detects -->
+  <script type="text/javascript" src="js/angular.min.js"></script>
+
+    <!-- <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script> -->
+    <script type="text/javascript" src="js/d3.v3.min.js"></script>
+    <script type="text/javascript" src="js/simple_statistics.min.js"></script>
+    <script type="text/javascript" src="js/jstat.js"></script>
+    <script type="text/javascript" src="js/textures.min.js"></script>
+    <!-- <script type="text/javascript" src="js/main.js"></script> -->
+    <script type="text/javascript" src="js/distContinuas/discretas.app.js"></script>
+    <script type="text/javascript" src="js/distContinuas/discretas.controller.js"></script>
+</head>
+
+<body>
+  <div class="container" ng-app="discretasApp" ng-controller="discretasController">
+    <div class="row">
+      <h1 class="text-center">Distribución Normal</h1>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="form-group">
+            <label for="">Recta1<span class=""> X1({{rectas.recta1}})</span>:</label>            
+            <input type="range" ng-model="rectas.recta1" step="0.1" min="{{xmin}}" max="{{xmax}}"  id="fader" ng-change="changeRect()">
+        </div>
+
+        <div class="form-group">
+            <label for="">Recta2<span class=""> X2({{rectas.recta2}})</span></label>            
+            <input type="range" ng-model="rectas.recta2" step="0.1" min="{{xmin}}" max="{{xmax}}"  id="fader" ng-change="changeRect()">
+        </div>
+
+        <div class="form-group">
+            <label for="">U<span class="">({{para.mu1}})</span></label>
+            <input type="range" ng-model="para.mu1" step="0.1" min="{{xmin}}" max="{{xmax}}" id="fader" ng-mouseup="changeCurve()">
+        </div>
+        
+        <div class="form-group">
+            <label for="">Sigma<span class="">({{para.sigma1}})</span></label>
+            <input type="range" ng-model="para.sigma1" step="0.1" min="0.1" max="{{xmax}}" id="fader" ng-mouseup="changeCurve()">
+        </div>
+
+        <div class="form-group">
+            <label for="">Dibujar Z </span></label>
+             <input type="checkbox" ng-model="viewZ" ng-change="show_z()">
+        </div>
+        
+        <div class="form-group">
+            <label for="">Limite inferior <span class="">({{cosa1}})</span></label>
+            <input type="range" ng-model="cosa1" step="0.1" min="-50" max="50" id="fader" ng-mouseup="init()">
+        </div>
+
+        <div class="form-group">
+            <label for="">Limite superior<span class="">({{cosa2}})</span></label>
+            <input type="range" ng-model="cosa2" step="0.1" min="-50" max="50" id="fader" ng-mouseup="init()">
+        </div>
+
+      </div>
+
+      <div class="col-md-8">
+          <div id="vvs">
+              <div id="viz">
+              </div>
+          </div>      
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 text-justify">
+          <h1>Resumen</h1>
+          <p>Se llama distribución normal, distribución de Gauss o distribución gaussiana, a una de las distribuciones de probabilidad de variable continua que con más frecuencia aparece aproximada en fenómenos reales.</p>
+          <p>La gráfica de su función de densidad tiene una forma acampanada y es simétrica respecto de un determinado parámetro estadístico. Esta curva se conoce como campana de Gauss y es el gráfico de una función gaussiana.</p>
+          <p>La importancia de esta distribución radica en que permite modelar numerosos fenómenos naturales, sociales y psicológicos. Mientras que los mecanismos que subyacen a gran parte de este tipo de fenómenos son desconocidos, por la enorme cantidad de variables incontrolables que en ellos intervienen, el uso del modelo normal puede justificarse asumiendo que cada observación se obtiene como la suma de unas pocas causas independientes.</p>
+          <p>De hecho, la estadística descriptiva sólo permite describir un fenómeno, sin explicación alguna. Para la explicación causal es preciso el diseño experimental, de ahí que al uso de la estadística en psicología y sociología sea conocido como método correlacional.</p>
+          <p>La distribución normal también es importante por su relación con la estimación por mínimos cuadrados, uno de los métodos de estimación más simples y antiguos.</p>
+      </div>
+    </div>
+  </div>
+
+
+</body>
+</html>
